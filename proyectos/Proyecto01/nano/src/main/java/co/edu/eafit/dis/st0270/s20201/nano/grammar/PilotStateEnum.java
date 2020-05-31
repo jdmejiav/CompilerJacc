@@ -8,17 +8,17 @@ public enum PilotStateEnum {
     I3(true),
     I4(),
     I5(true),
-    I6(),
+    I6(true),
     I7(true),
     I8(),
     I9(true),
-    I10(),
-    I11(),
-    I12(),
-    I13(),
-    I14(),
-    I15(),
-    I16();
+    I10(true),
+    I11(true),
+    I12(true),
+    I13(true),
+    I14(true),
+    I15(true),
+    I16(true);
     private boolean reduction = false;
 
     PilotStateEnum(boolean reduction) {
