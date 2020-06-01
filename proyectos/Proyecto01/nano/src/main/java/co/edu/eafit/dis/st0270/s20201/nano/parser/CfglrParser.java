@@ -24,7 +24,7 @@ import co.edu.eafit.dis.st0270.s20201.nano.grammar.I15;
 import co.edu.eafit.dis.st0270.s20201.nano.grammar.I16;
 import co.edu.eafit.dis.st0270.s20201.nano.grammar.S0;
 import co.edu.eafit.dis.st0270.s20201.nano.grammar.S1;
-import co.edu.eafit.dis.st0270.s20201.nanor.grammar.S;
+import co.edu.eafit.dis.st0270.s20201.nano.grammar.S;
 import co.edu.eafit.dis.st0270.s20201.nano.grammar.A;
 import co.edu.eafit.dis.st0270.s20201.nano.grammar.B;
 import co.edu.eafit.dis.st0270.s20201.nano.grammar.C;
