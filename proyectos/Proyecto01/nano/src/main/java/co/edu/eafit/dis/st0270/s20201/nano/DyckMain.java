@@ -3,13 +3,13 @@ package co.edu.eafit.dis.st0270.s20201.nano;
 import gnu.getopt.Getopt;
 import java.io.StringReader;
 import java.io.FileReader;
-import java_cup.runtime.Symbol;
+//import java_cup.runtime.Symbol;
 import co.edu.eafit.dis.st0270.s20201.nano.abs.AbsTree;
 import co.edu.eafit.dis.st0270.s20201.nano.lexer.DyckLexer;
-import co.edu.eafit.dis.st0270.s20201.nano.lexer.DyckCupLexer;
+//import co.edu.eafit.dis.st0270.s20201.nano.lexer.DyckCupLexer;
 import co.edu.eafit.dis.st0270.s20201.nano.parser.DyckParser;
 import co.edu.eafit.dis.st0270.s20201.nano.parser.DyckParserException;
-import co.edu.eafit.dis.st0270.s20201.nano.parser.DyckCompilerCupParser;
+//import co.edu.eafit.dis.st0270.s20201.nano.parser.DyckCompilerCupParser;
 import co.edu.eafit.dis.st0270.s20201.nano.visitor.DepthVisitor;
 import co.edu.eafit.dis.st0270.s20201.nano.visitor.ShowVisitor;
 
@@ -104,69 +104,6 @@ public class DyckMain {
          }
          break;
 
-      case CUP:
-         {
-            DyckCompilerCupParser dccp = null;
-
-            if (str != null) {
-
-               try {
-                  dccp = new DyckCompilerCupParser(new DyckCupLexer(new StringReader(str)));
-                  Symbol symbol = dccp.parse();
-
-
-                  AbsTree tree = (AbsTree) symbol.value;
-
-                  DepthVisitor dv  = new DepthVisitor();
-		  ShowVisitor  sv  = new ShowVisitor();
-		  ShowVisitor  sv2 = new ShowVisitor('{','}');
-
-                  tree.accept(dv);
-                  tree.accept(sv);
-                  tree.accept(sv2);
-
-                  System.out.println("Valid expression: " + str);
-
-                  System.out.println("Depth: " + dv.getDepth());
-
-		  System.out.println("String: " + sv.getSB());
-		  System.out.println("Translate: " + sv2.getSB());
-               }
-               catch (Exception e) {
-                  System.err.println("Exception " + e);
-                  System.err.println("Invalid expression: " + str);
-               }
-            }
-
-            for (int i = startFiles; i < args.length; ++i) {
-               try {
-                  dccp = new DyckCompilerCupParser(new DyckCupLexer(new FileReader(args[i])));
-                  Symbol symbol = dccp.parse();
-
-                  AbsTree tree = (AbsTree) symbol.value;
-
-                  DepthVisitor dv = new DepthVisitor();
-		  ShowVisitor sv = new ShowVisitor();
-		  ShowVisitor sv2 = new ShowVisitor('{','}');
-
-                  tree.accept(dv);
-		  tree.accept(sv);
-		  tree.accept(sv2);
-
-                  System.out.println("Valid file: " + args[i]);
-
-                  System.out.println("Depth: " + dv.getDepth());
-
-		  System.out.println("String: " + sv.getSB());
-		  System.out.println("Translate: " + sv2.getSB());
-
-               }
-               catch (Exception e) {
-                  System.err.println("Invalid file: " + args[i]);
-               }
-            }
-         }
-         break;
       }
       System.exit(0);
    }
