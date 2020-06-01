@@ -31,7 +31,7 @@ public class DyckMain {
     * format command line this static fuction is called.
     */
    public static void usage() {
-      System.err.println("Usage: java DyckMain [-p [{manual|cup}] [-s] [<filename>] ...");
+      System.err.println("Usage: java DyckMain [-p [{manual|jacc}] [-s] [<filename>] ...");
       System.exit(1);
    }
 
@@ -76,11 +76,11 @@ public class DyckMain {
       switch(ck) {
       case MANUAL:
          {
-            CfglrParser dp = null;
+            DyckParser dp = null;
 
             if (str != null) {
                try {
-                  dp = new CfglrParser(new DyckLexer(new StringReader(str)));
+                  dp = new DyckParser(new DyckLexer(new StringReader(str)));
 		  dp.parser();
                   System.out.println("Valid expression: " + str);
                }
@@ -92,7 +92,7 @@ public class DyckMain {
 
             for (int i = startFiles; i < args.length; ++i) {
                try {
-                  dp = new CfglrParser(new DyckLexer(new FileReader(args[i])));
+                  dp = new DyckParser(new DyckLexer(new FileReader(args[i])));
 		  dp.parser();
                   System.err.println("Valid file: " + args[i]);
                }

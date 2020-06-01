@@ -188,7 +188,7 @@ public class DyckParser {
   nextProductionMap.put(new EndOfString(), Production.P8);
   nextProductionMap.put(new Coma(), Production.P8);
   nextProductionMap.put(new Palito(), Production.P8);
-	reductionMap.put(new I40(), nextProductionMap);
+	reductionMap.put(new I14(), nextProductionMap);
   // I15
 	nextProductionMap = new HashMap<Terminal,Production>();
 	nextProductionMap.put(new EndOfString(), Production.P2);
