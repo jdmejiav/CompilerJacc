@@ -1,41 +1,42 @@
-// Directivas para personalizar la clase
+//Directivas para personalizar la clase
 //%package co.edu.eafit.dis.st0270.s20201.nano
-%{
-import java.util.Scanner;
-%}
-%class CfglrParser
-%interface CfglrTokens
-%get       lexer.getToken()
-%next      lexer.nextToken()
-%token     ASIG PALITO COMA MAY MIN
-%start     prog
-%%
-// Las reglas
-prog : cfglr    // S1 -> S0 EOF
-     ;
 
-cfglr : a ASIG s COMA cfglr  //S0 -> A::=S,S0
-     |a ASIG s              //S0 -> A::=S
-     |
-     ;
-s : c PALITO s   //S -> C | S
- |c             //S -> C
- |
- ;
-c : b a              //C -> BA
- |a         //C -> A
- ;
-b : MIN     //B -> MIN
- ;
-a : MAY     //A->MAY
- ;
+
+//Reglas de la gramática
+
+%class NanoParser
+%interface NanoTokens
+%get	lexer.getToken()
+%next	lexer.nextToken()
+%token BARRA COMA ASIGNACION MAYUSCULA MINUSCULA
+%start axioma
 
 %%
-private CfglrLexer lexer;
-public CfglrParser(CfglrLexer lexer){
-    this.lexer=lexer;
-}
-private void yyerror(String msg){
+// las reglas
+axioma		:	rule
+		;
+rule		:	noterminal	ASIGNACION	production	COMA	rule
+		|	noterminal	ASIGNACION	production
+		|
+		;
+production	:	rhs	BARRA	production
+		|	rhs
+		|
+		;
+rhs		:	terminal	noterminal
+		|	noterminal
+		;
+terminal	:	MINUSCULA
+		;
+noterminal	:	MAYUSCULA						
+		;
 
-}
-    
+%%
+//Código Java
+
+
+	private NanoLexer lexer;
+	public NanoParser(NanoLexer lexer){
+		this.lexer = lexer;
+	}
+	private void yyerror(String msg){}
