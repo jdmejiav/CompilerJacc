@@ -8,7 +8,6 @@
                 FileReader fr=new FileReader(args[i]);
                 CfglrLexer dl=new CfglrLexer(fr);
                 CfglrParser dp=new CfglrParser(dl);
-                dl.nextToken();
                 if(dp.parse()){
                     System.out.println(""+args[i]+
                                        " está bien formado");
