@@ -6,7 +6,7 @@ public enum PilotStateEnum {
     I1(),
     I2(),
     I3(true),
-    I4(),
+    I4(true),
     I5(true),
     I6(true),
     I7(true),

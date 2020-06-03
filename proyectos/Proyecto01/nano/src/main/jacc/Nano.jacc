@@ -1,6 +1,5 @@
 //Directivas para personalizar la clase
-//%package co.edu.eafit.dis.st0270.s20201.nano
-
+%package co.edu.eafit.dis.st0270.s20201.nano
 
 //Reglas de la gramática
 
@@ -28,7 +27,7 @@ rhs		:	terminal	noterminal
 		;
 terminal	:	MINUSCULA
 		;
-noterminal	:	MAYUSCULA						
+noterminal	:	MAYUSCULA
 		;
 
 %%

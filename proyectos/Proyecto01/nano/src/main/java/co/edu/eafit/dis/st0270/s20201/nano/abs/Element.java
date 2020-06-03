@@ -4,7 +4,7 @@ import co.edu.eafit.dis.st0270.s20201.nano.visitor.Visitor;
 
 /**
  * <code>Element</code> is the other part implementation Visitor pattern.
- * @see co.edu.eafit.dis.st0270.dyckcompiler.visitor.Visitor
+ * @see co.edu.eafit.dis.st0270.s20201.nano.visitor.Visitor
  *
  * @author Juan Francisco Cardona McCormick
  * @version 0.0.1.27

@@ -18,7 +18,7 @@ public class May extends Terminal{
 
     public String toString() {
       String res = super.toString();
-      return new String(") "+ res);
+      return new String("May "+ res);
     }
 
 
