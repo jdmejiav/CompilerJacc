@@ -1,7 +1,6 @@
 package co.edu.eafit.dis.st0270.s20201.nano.visitor;
 
-import co.edu.eafit.dis.st0270.s20201.nano.abs.AbsTree;
-import co.edu.eafit.dis.st0270.s20201.nano.abs.DyckAbs;
+import co.edu.eafit.dis.st0270.s20201.nano.abs.CfglrAbs;
 import co.edu.eafit.dis.st0270.s20201.nano.abs.ProgAbs;
 
 public class ShowVisitor implements Visitor {
@@ -26,7 +25,7 @@ public class ShowVisitor implements Visitor {
       p.getSub().accept(this);
    }
 
-   public void visit(DyckAbs da) {
+   public void visit(CfglrAbs da) {
 
       if (da == null) {
          sb = new StringBuffer();

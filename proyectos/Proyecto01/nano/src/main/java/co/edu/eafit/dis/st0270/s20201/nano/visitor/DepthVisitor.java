@@ -1,7 +1,6 @@
 package co.edu.eafit.dis.st0270.s20201.nano.visitor;
 
-import co.edu.eafit.dis.st0270.s20201.nano.abs.AbsTree;
-import co.edu.eafit.dis.st0270.s20201.nano.abs.DyckAbs;
+import co.edu.eafit.dis.st0270.s20201.nano.abs.CfglrAbs;
 import co.edu.eafit.dis.st0270.s20201.nano.abs.ProgAbs;
 
 
@@ -20,7 +19,7 @@ public class DepthVisitor implements Visitor {
       element.getSub().accept(this);
    }
 
-   public void visit(DyckAbs element) {
+   public void visit(CfglrAbs element) {
 
       if (element == null) {
          this.depth = 0;

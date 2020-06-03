@@ -18,7 +18,7 @@ public class Min extends Terminal{
 
     public String toString() {
       String res = super.toString();
-      return new String(") "+ res);
+      return new String("Min "+ res);
     }
 
 
