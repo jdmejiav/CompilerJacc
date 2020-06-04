@@ -8,11 +8,11 @@ import co.edu.eafit.dis.st0270.s20201.nano.lexer.CfglrLexer;
 import co.edu.eafit.dis.st0270.s20201.nano.parser.CfglrParser;
 
 /**
- * <code>DyckMain</code> is responsable to start the
+ * <code>CfglrMain</code> is responsable to start the
  * implementation of a LR(1) compiler, in two different versions: manual
- * and cup.
+ * and jacc.
  *
- * @author Juan Francisco Cardona McCormick
+ * @author Armando Ríos Gallego Juan Diego Mejía Vargas
  * @version 0.0.1.26
  * @since   0.0.1.0
  */
@@ -64,11 +64,11 @@ public class CfglrMain {
              try {
                 dp = new CfglrParser(new CfglrLexer(new FileReader(args[i])));
                 dp.parser();
-                System.err.println("Valid file: " + args[i] + " with manual parser");
+                System.err.println("Fichero: " + args[i] + " está bien formado ManualParser");
              }
              catch (Exception e) {
                 System.err.println(e);
-                System.err.println("Invalid File: " + args[i] + " with manual parser");
+                System.err.println("Fichero: " + args[i] + " está mal formado ManualParser");
              }
           }
           if (jacc) {
@@ -77,9 +77,9 @@ public class CfglrMain {
                 gjp = new NanoParser(gjl);
                 gjl.nextToken();
                 if (gjp.parse()) {
-                   System.err.println("Valid file: " + args[i] + " with jacc parser");
+                   System.err.println("Fichero: " + args[i] + " está bien formado JaccParser");
                 } else {
-                   System.err.println("Invalid file " + args[i] + " with jacc parser");
+                   System.err.println("Fichero: " + args[i] + " está mal formado JaccParser");
                 }
              } catch (Exception e) {
                 System.err.println(e);
