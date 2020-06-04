@@ -12,9 +12,10 @@ import co.edu.eafit.dis.st0270.s20201.nano.parser.CfglrParser;
  * implementation of a LR(1) compiler, in two different versions: manual
  * and jacc.
  *
- * @author Armando Ríos Gallego Juan Diego Mejía Vargas
+ * @author Juan Francisco Cardona Mc'cormick
  * @version 0.0.1.26
  * @since   0.0.1.0
+ * @modify by Armando Ríos Gallego and Juan Diego Mejía Vargas
  */
 public class CfglrMain {
 
