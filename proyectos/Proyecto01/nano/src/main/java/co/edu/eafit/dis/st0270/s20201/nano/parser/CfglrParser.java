@@ -52,69 +52,69 @@ public class CfglrParser {
 	// I0
 	pilotMap     = new HashMap<PilotState, Map<GrammarSymbol,PilotState>>();
 	Map<GrammarSymbol,PilotState> nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-	nextStateMap.put(new S0(), new I2());
-	nextStateMap.put(new A(), new I3());
-  nextStateMap.put(new May(), new I1());
+	nextStateMap.put(new S0(), new I1());
+	nextStateMap.put(new A(), new I2());
+  nextStateMap.put(new May(), new I3());
 	pilotMap.put(new I0(), nextStateMap);
 	// I1
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
+  nextStateMap.put(new EndOfString(), new I4());
 	pilotMap.put(new I1(), nextStateMap);
 	// I2
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-  nextStateMap.put(new EndOfString(), new I4());
+  nextStateMap.put(new Asignacion(), new I5());
 	pilotMap.put(new I2(), nextStateMap);
 	// I3
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-  nextStateMap.put(new Asignacion(), new I5());
 	pilotMap.put(new I3(), nextStateMap);
 	// I4
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
 	pilotMap.put(new I4(), nextStateMap);
 	// I5
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-	nextStateMap.put(new B(), new I10());
-	nextStateMap.put(new A(), new I11());
-  nextStateMap.put(new Min(), new I6());
-  nextStateMap.put(new May(), new I7());
-  nextStateMap.put(new C(), new I9());
-  nextStateMap.put(new S(), new I8());
+	nextStateMap.put(new B(), new I8());
+	nextStateMap.put(new A(), new I9());
+  nextStateMap.put(new Min(), new I10());
+  nextStateMap.put(new May(), new I11());
+  nextStateMap.put(new C(), new I7());
+  nextStateMap.put(new S(), new I6());
 	pilotMap.put(new I5(), nextStateMap);
 	// I6
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
+  nextStateMap.put(new Coma(), new I12());
 	pilotMap.put(new I6(), nextStateMap);
 	// I7
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
+  nextStateMap.put(new Palito(), new I13());
 	pilotMap.put(new I7(), nextStateMap);
 	// I8
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-	nextStateMap.put(new Coma(), new I12());
+	nextStateMap.put(new A(), new I14());
+  nextStateMap.put(new May(), new I11());
 	pilotMap.put(new I8(), nextStateMap);
 	// I9
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-  nextStateMap.put(new Palito(), new I13());
 	pilotMap.put(new I9(), nextStateMap);
 	// I10
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-  nextStateMap.put(new A(), new I14());
-  nextStateMap.put(new May(), new I4());
 	pilotMap.put(new I10(), nextStateMap);
   // I11
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
 	pilotMap.put(new I11(), nextStateMap);
   // I12
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-  nextStateMap.put(new May(), new I1());
-  nextStateMap.put(new A(), new I3());
+  nextStateMap.put(new May(), new I3());
+  nextStateMap.put(new A(), new I2());
   nextStateMap.put(new S0(), new I15());
 	pilotMap.put(new I12(), nextStateMap);
   // I13
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
-  nextStateMap.put(new C(), new I9());
+  nextStateMap.put(new C(), new I7());
   nextStateMap.put(new S(), new I16());
-  nextStateMap.put(new B(), new I10());
+  nextStateMap.put(new B(), new I8());
   nextStateMap.put(new A(), new I9());
-  nextStateMap.put(new May(), new I7());
-  nextStateMap.put(new Min(), new I6());
+  nextStateMap.put(new May(), new I11());
+  nextStateMap.put(new Min(), new I10());
 	pilotMap.put(new I13(), nextStateMap);
   // I14
 	nextStateMap = new HashMap<GrammarSymbol, PilotState>();
@@ -138,10 +138,10 @@ public class CfglrParser {
 	nextProductionMap = new HashMap<Terminal,Production>();
 	nextProductionMap.put(new EndOfString(), Production.P1);
 	reductionMap.put(new I4(), nextProductionMap);
-	// I1
+	// I3
 	nextProductionMap = new HashMap<Terminal,Production>();
 	nextProductionMap.put(new Asignacion(), Production.P11);
-	reductionMap.put(new I1(), nextProductionMap);
+	reductionMap.put(new I3(), nextProductionMap);
 	// I5
 	nextProductionMap = new HashMap<Terminal,Production>();
 	nextProductionMap.put(new EndOfString(), Production.P7);
@@ -149,28 +149,28 @@ public class CfglrParser {
 	reductionMap.put(new I5(), nextProductionMap);
 	// I6
 	nextProductionMap = new HashMap<Terminal,Production>();
-  nextProductionMap.put(new May(), Production.P10);
+  nextProductionMap.put(new EndOfString(), Production.P3);
 	reductionMap.put(new I6(), nextProductionMap);
 	// I7
 	nextProductionMap = new HashMap<Terminal,Production>();
-  nextProductionMap.put(new EndOfString(), Production.P11);
-  nextProductionMap.put(new Coma(), Production.P11);
-  nextProductionMap.put(new Palito(), Production.P11);
-	reductionMap.put(new I7(), nextProductionMap);
-	// I9
-	nextProductionMap = new HashMap<Terminal,Production>();
   nextProductionMap.put(new EndOfString(), Production.P6);
   nextProductionMap.put(new Coma(), Production.P6);
-	reductionMap.put(new I9(), nextProductionMap);
-  // I8
-	nextProductionMap = new HashMap<Terminal,Production>();
-	nextProductionMap.put(new EndOfString(), Production.P3);
-	reductionMap.put(new I8(), nextProductionMap);
-  // I11
+	reductionMap.put(new I7(), nextProductionMap);
+	// I9
 	nextProductionMap = new HashMap<Terminal,Production>();
   nextProductionMap.put(new EndOfString(), Production.P9);
   nextProductionMap.put(new Coma(), Production.P9);
   nextProductionMap.put(new Palito(), Production.P9);
+	reductionMap.put(new I9(), nextProductionMap);
+  // I10
+	nextProductionMap = new HashMap<Terminal,Production>();
+	nextProductionMap.put(new May(), Production.P10);
+	reductionMap.put(new I10(), nextProductionMap);
+  // I11
+	nextProductionMap = new HashMap<Terminal,Production>();
+  nextProductionMap.put(new EndOfString(), Production.P11);
+  nextProductionMap.put(new Coma(), Production.P11);
+  nextProductionMap.put(new Palito(), Production.P11);
 	reductionMap.put(new I11(), nextProductionMap);
   // I12
 	nextProductionMap = new HashMap<Terminal,Production>();
