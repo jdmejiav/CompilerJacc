@@ -48,7 +48,7 @@ public class CfglrMain {
                 jacc = true;
                 break;
              default:
-                usage();
+                manual=true;
                 break;
           }
        }
