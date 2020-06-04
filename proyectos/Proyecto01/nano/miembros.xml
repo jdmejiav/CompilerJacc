@@ -2,11 +2,16 @@
     <nombre>nano</nombre>
     <miembros>
      <miembro>
-      <nombre>Juan Francisco Cardona McCormick</nombre>
-      <codigo>198610250010</codigo>
-      <email>fcardona@eafit.edu.co</email>
+      <nombre>Armando Ríos Gallego</nombre>
+      <codigo>201910099010</codigo>
+      <email>ariosg@eafit.edu.co</email>
+     </miembro>
+     <miembro>
+      <nombre>Juan Diego Mejía Vargas</nombre>
+      <codigo>201910091010</codigo>
+      <email>jdmejiav@eafit.edu.co</email>
      </miembro>
     </miembros>
-    <mainclass clase="Main" package="co.edu.eafit.dis.st0270.20201.nano/>
+    <mainclass clase="CfglrMain" package="co.edu.eafit.dis.st0270.20201.nano/>
 </grupo>
 
