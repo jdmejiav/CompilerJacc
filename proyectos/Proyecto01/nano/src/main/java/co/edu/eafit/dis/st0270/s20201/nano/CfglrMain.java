@@ -32,79 +32,60 @@ public class CfglrMain {
    /**
     * <code>main</code> is the start point of the execution of the DyckCompiler package.
     */
-   public static void main(String args[]) {
+    public static void main(String[] args) {
 
-       Getopt getOpt = new Getopt("CfglrMain", args, "m::j::s::");
+       Getopt getOpt = new Getopt("CfglrMain", args, "mj");
        int c;
-       String str = null;
-       CompilerKind ck = CompilerKind.MANUAL;
+       boolean manual = false;
+       boolean jacc = false;
 
        while ((c = getOpt.getopt()) != -1) {
-           switch (c) {
-               case 'm':
-                   ck = CompilerKind.MANUAL;
-                   break;
-               case 'j':
-                   ck = CompilerKind.JACC;
-                   break;
-               case 's':
-                   str = getOpt.getOptarg();
-                   break;
-
-               default:
-                   usage();
-                   break;
-           }
+          switch (c) {
+             case 'm':
+                manual = true;
+                break;
+             case 'j':
+                jacc = true;
+                break;
+             default:
+                usage();
+                break;
+          }
        }
 
        int startFiles = getOpt.getOptind();
 
-       if (str == null && startFiles == args.length) usage();
-
-       switch (ck) {
-           case MANUAL: {
-               CfglrParser dp = null;
-
-               if (str != null) {
-                   try {
-                       dp = new CfglrParser(new CfglrLexer(new StringReader(str)));
-                       dp.parser();
-                       System.out.println("Valid expression: " + str);
-                   } catch (Exception e) {
-                       System.err.println(e);
-                       System.err.println("Invalid expression: " + str);
-                   }
-               }
-
-               for (int i = startFiles; i < args.length; ++i) {
-                   try {
-                       dp = new CfglrParser(new CfglrLexer(new FileReader(args[i])));
-                       dp.parser();
-                       System.err.println("Valid file: " + args[i]);
-                   } catch (Exception e) {
-                       System.err.println(e);
-                       System.err.println("Invalid File: " + args[i]);
-                   }
-               }
-           }
-           break;
-           case JACC:
-               for (int i = 0; i < args.length; i++) {
-                   try {
-                       FileReader fr = new FileReader(args[i]);
-                       NanoLexer dl = new NanoLexer(fr);
-                       NanoParser dp = new NanoParser(dl);
-                       dl.nextToken();
-                       if (dp.parse()) {
-                           System.out.println(args[i] + " está bien formado");
-                       } else {
-                           System.out.println(args[i] + " no está bien formado");
-                       }
-                   } catch (FileNotFoundException fnfe) {
-                       System.err.println("ErroR: " + args[i] + " no existe");
-                   }
-               }
-               System.exit(0);
+       if (startFiles == args.length) usage();
+       CfglrParser dp;
+       NanoParser gjp;
+       NanoLexer gjl;
+       for (int i = startFiles; i < args.length; ++i) {
+          if (manual) {
+             try {
+                dp = new CfglrParser(new CfglrLexer(new FileReader(args[i])));
+                dp.parser();
+                System.err.println("Valid file: " + args[i] + " with manual parser");
+             }
+             catch (Exception e) {
+                System.err.println(e);
+                System.err.println("Invalid File: " + args[i] + " with manual parser");
+             }
+          }
+          if (jacc) {
+             try {
+                gjl = new NanoLexer(new FileReader(args[i]));
+                gjp = new NanoParser(gjl);
+                gjl.nextToken();
+                if (gjp.parse()) {
+                   System.err.println("Valid file: " + args[i] + " with jacc parser");
+                } else {
+                   System.err.println("Invalid file " + args[i] + " with jacc parser");
+                }
+             } catch (Exception e) {
+                System.err.println(e);
+             }
+          }
        }
+       System.exit(0);
    }
 }

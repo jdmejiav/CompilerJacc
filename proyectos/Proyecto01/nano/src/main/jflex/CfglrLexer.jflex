@@ -26,12 +26,12 @@ Upper			= "Q"|"W"|"E"|"R"|"T"|"Y"|"U"|"I"|"O"|"P"|"A"|"S"|"D"|"F"|"G"|"H"|"J"|"K
 %%
 
 "::="                  { return new Asignacion(yycolumn + 1, yyline + 1); }
-"|"                  { return new Palito(yycolumn + 1, yyline + 1); }
-","                  { return new Coma(yycolumn + 1, yyline + 1); }
-{Upper}                  { return new May(yycolumn + 1, yyline + 1); }
-{Lower}                  { return new Min(yycolumn + 1, yyline + 1); }
-{WhiteSpace}         { }
-.                    { throw new Error("Illegal character <" +
+"|"                    { return new Palito(yycolumn + 1, yyline + 1);     }
+","                    { return new Coma(yycolumn + 1, yyline + 1);       }
+{Upper}                { return new May(yycolumn + 1, yyline + 1);        }
+{Lower}                { return new Min(yycolumn + 1, yyline + 1);        }
+{WhiteSpace}           {                                                  }
+.                      { throw new Error("Illegal character <" +
                                        yytext() + "> at line: " +
                                        (yyline + 1) + " column: " +
                                        yycolumn);

@@ -18,6 +18,6 @@ public class I8 extends PilotState {
     }
 
     public int hashCode() {
-	return EnumGrammarSymbol.I8.ordinal();
+	     return EnumGrammarSymbol.I8.ordinal();
     }
 }
