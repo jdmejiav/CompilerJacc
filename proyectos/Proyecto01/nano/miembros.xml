@@ -1,5 +1,5 @@
 <grupo>
-    <nombre>abcdefg</nombre>
+    <nombre>nano</nombre>
     <miembros>
      <miembro>
       <nombre>Juan Francisco Cardona McCormick</nombre>
@@ -7,6 +7,6 @@
       <email>fcardona@eafit.edu.co</email>
      </miembro>
     </miembros>
-    <mainclass clase="Main" package="co.edu.eafit.dis.st0270.20201.abcdefg/>
+    <mainclass clase="Main" package="co.edu.eafit.dis.st0270.20201.nano/>
 </grupo>
 
